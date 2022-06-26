@@ -113,7 +113,7 @@ func main() {
 
 	m := d3.Mesh{}
 	if err := m.ToObj(); err != nil {
-		log.Printf("something went wrong")
+		log.Printf("error rendering 3d mesh")
 	}
 
 	if err := sdl.Init(sdl.INIT_EVERYTHING); err != nil {
