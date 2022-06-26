@@ -116,7 +116,8 @@ func main() {
 		B: d3.Vertex{X: 0.5, Y: -0.5, Z: 0.0},
 		C: d3.Vertex{X: 0.0, Y: 0.5, Z: 0.0},
 	}
-	polygons := append([]d3.Polygon{}, polygon)
+	polygons := []d3.Polygon{}
+	polygons = append(polygons, polygon)
 
 	mesh := d3.Mesh{Polygons: polygons}
 
