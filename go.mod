@@ -1,4 +1,4 @@
-module github.com/josephbharrison/wx
+module github.com/TropoLab/wx
 
 go 1.18
 
