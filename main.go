@@ -111,8 +111,16 @@ func newProgram(vertexShaderSrc, fragmentShaderSrc string) (uint32, error) {
 
 func main() {
 
-	m := d3.Mesh{}
-	if err := m.ToObj(); err != nil {
+	polygon := d3.Polygon{
+		A: d3.Vertex{X: -0.5, Y: -0.5, Z: 0.0},
+		B: d3.Vertex{X: 0.5, Y: -0.5, Z: 0.0},
+		C: d3.Vertex{X: 0.0, Y: 0.5, Z: 0.0},
+	}
+	polygons := append([]d3.Polygon{}, polygon)
+
+	mesh := d3.Mesh{Polygons: polygons}
+
+	if err := mesh.ToObj(); err != nil {
 		log.Printf("error rendering 3d mesh")
 	}
 
@@ -145,12 +153,8 @@ func main() {
 		panic(err)
 	}
 
-	// create triangle veritices
-	vertices := []float32{
-		-0.5, -0.5, 0.0,
-		0.5, -0.5, 0.0,
-		0.0, 0.5, 0.0,
-	}
+	// render first polygon from mesh
+	vertices := mesh.Polygons[0].Render()
 
 	// bind vertice array
 	var VAO uint32

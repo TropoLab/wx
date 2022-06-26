@@ -3,10 +3,10 @@ package d3
 import "log"
 
 type Mesh struct {
-	polygons []Vertex
+	Polygons []Polygon
 }
 
 func (m Mesh) ToObj() error {
-	log.Printf("polygons: %v\n", m.polygons)
+	log.Printf("polygons: %v\n", m.Polygons)
 	return nil
 }

@@ -6,16 +6,16 @@ type Polygon struct {
 	C Vertex
 }
 
-func (p Polygon) Render() [9]int32 {
-	return [9]int32{
-		p.A.x,
-		p.A.y,
-		p.A.z,
-		p.B.x,
-		p.B.y,
-		p.B.z,
-		p.C.x,
-		p.C.y,
-		p.C.z,
+func (p Polygon) Render() []float32 {
+	return []float32{
+		p.A.X,
+		p.A.Y,
+		p.A.Z,
+		p.B.X,
+		p.B.Y,
+		p.B.Z,
+		p.C.X,
+		p.C.Y,
+		p.C.Z,
 	}
 }
