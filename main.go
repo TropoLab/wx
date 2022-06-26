@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/go-gl/gl/v4.1-core/gl"
+	"github.com/tropolab/wx/d3"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -110,10 +111,10 @@ func newProgram(vertexShaderSrc, fragmentShaderSrc string) (uint32, error) {
 
 func main() {
 
-	// m := d3.Mesh{}
-	// if err := m.ToObj(); err != nil {
-	// 	log.Printf("something went wrong")
-	// }
+	m := d3.Mesh{}
+	if err := m.ToObj(); err != nil {
+		log.Printf("something went wrong")
+	}
 
 	if err := sdl.Init(sdl.INIT_EVERYTHING); err != nil {
 		log.Fatalln("failed to initialize SDL2:", err)
@@ -124,7 +125,7 @@ func main() {
 	sdl.GLSetAttribute(sdl.GL_CONTEXT_MAJOR_VERSION, 3)
 	sdl.GLSetAttribute(sdl.GL_CONTEXT_MINOR_VERSION, 1)
 	sdl.GLSetAttribute(sdl.GL_CONTEXT_PROFILE_MASK, sdl.GL_CONTEXT_PROFILE_CORE)
-	window, err := sdl.CreateWindow("Hello triangle", winX, winY, winWidth, winHeight, sdl.WINDOW_OPENGL)
+	window, err := sdl.CreateWindow("TropoLab Weather", winX, winY, winWidth, winHeight, sdl.WINDOW_OPENGL)
 	if err != nil {
 		panic(err)
 	}
