@@ -1,4 +1,4 @@
-module github.com/TropoLab/wx
+module github.com/tropolab/wx
 
 go 1.18
 
