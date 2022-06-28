@@ -13,8 +13,8 @@ import (
 const (
 	winX      = 200
 	winY      = 200
-	winWidth  = 720
-	winHeight = 200
+	winWidth  = 1280
+	winHeight = 720
 	nullStr   = "\x00"
 )
 
@@ -111,14 +111,19 @@ func newProgram(vertexShaderSrc, fragmentShaderSrc string) (uint32, error) {
 
 func Render() {
 
-	polygon := d3.Polygon{
-		A: d3.Vertex{X: -0.5, Y: -0.5, Z: 0.0},
-		B: d3.Vertex{X: 0.5, Y: -0.5, Z: 0.0},
-		C: d3.Vertex{X: 0.0, Y: 0.5, Z: 0.0},
-	}
-	polygons := []d3.Polygon{}
-	polygons = append(polygons, polygon)
+	// create a triangle as a polygon
+	triangle := d3.Polygon{}
+	triangle.AddVertex(-0.5, -0.5, 0.0)
+	triangle.AddVertex(0.5, -0.5, 0.0)
+	triangle.AddVertex(0.0, 0.5, 0.0)
 
+	// create a polygon slice
+	polygons := []d3.Polygon{}
+
+	// add the triangle to the polygon slice
+	polygons = append(polygons, triangle)
+
+	// create a mesh
 	mesh := d3.Mesh{Polygons: polygons}
 
 	if err := mesh.ToObj(); err != nil {
