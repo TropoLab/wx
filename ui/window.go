@@ -159,8 +159,8 @@ func Render() {
 		panic(err)
 	}
 
-	// render first polygon from mesh
-	vertices := mesh.Polygons[0].Render()
+	// render the mesh
+	vertices := mesh.Render()
 
 	// bind vertice array
 	var VAO uint32

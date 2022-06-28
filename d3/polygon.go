@@ -11,11 +11,11 @@ func (p *Polygon) AddVertex(x float32, y float32, z float32) {
 }
 
 // Render the polygon as a float32 slice
-func (p Polygon) Render() (v []float32) {
+func (p Polygon) Render() (r []float32) {
 	for _, vertex := range p.Vertices {
-		v = append(v, vertex.X)
-		v = append(v, vertex.Y)
-		v = append(v, vertex.Z)
+		r = append(r, vertex.X)
+		r = append(r, vertex.Y)
+		r = append(r, vertex.Z)
 	}
 	return
 }
